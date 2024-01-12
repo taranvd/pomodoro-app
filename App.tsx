@@ -1,20 +1,23 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import Auth from '@/components/screens/auth/Auth';
+import AuthProviders from '@/providers/AuthProviders';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Navigation } from '@/navigation/Navigation';
+
+const queryClien = new QueryClient();
 
 export default function App() {
   return (
-    <View className="bg-[#1E1C2E] flex-1">
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClien}>
+      <AuthProviders>
+        <SafeAreaProvider>
+          <Navigation />
+        </SafeAreaProvider>
+      </AuthProviders>
+      <StatusBar style="light" />
+    </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

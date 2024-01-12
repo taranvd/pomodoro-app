@@ -1,3 +1,4 @@
+import BottomMenu from '@/components/ui/layout/bottom-menu/BottomMenu';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigationContainerRef } from '@react-navigation/native';
 import { FC, useEffect, useState } from 'react';
@@ -27,9 +28,9 @@ export const Navigation: FC<Props> = () => {
 
   return (
     <>
-      <View>
-        <Text>Navigation</Text>
-      </View>
+      {user && currentRoute && (
+        <BottomMenu nav={navRef.navigate} currentRout={currentRoute} />
+      )}
     </>
   );
 };

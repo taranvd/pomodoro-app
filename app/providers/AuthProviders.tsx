@@ -23,7 +23,7 @@ export const AuthContext = createContext({} as IContentext);
 let ignore = Splash.preventAutoHideAsync();
 
 const AuthProviders: FC<PropsWithChildren<unknown>> = ({ children }) => {
-  const [user, setUser] = useState<TypeUserState>(null);
+  const [user, setUser] = useState<TypeUserState>({} as IUser);
 
   useEffect(() => {
     //Get user from async storage and write to store
