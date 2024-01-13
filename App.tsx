@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { StatusBar } from 'expo-status-bar';

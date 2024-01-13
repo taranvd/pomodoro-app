@@ -7,17 +7,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface IBottomMenu {
   nav: TypeNav;
-  currentRout?: string;
+  currentRoute?: string;
 }
 
 const BottomMenu: FC<IBottomMenu> = props => {
   const { bottom } = useSafeAreaInsets();
-
   return (
     <View
-      className="pt-5 px-3 flex-row justify-between items-center w-full"
+      className="pt-5 px-3 flex-row justify-between items-center w-full bg-[#1E1C2E]"
       style={{
-        paddingBottom: bottom + 10,
+        paddingBottom: bottom + 5,
       }}
     >
       {menuData.map(item => (

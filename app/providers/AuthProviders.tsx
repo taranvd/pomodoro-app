@@ -26,7 +26,22 @@ const AuthProviders: FC<PropsWithChildren<unknown>> = ({ children }) => {
   const [user, setUser] = useState<TypeUserState>({} as IUser);
 
   useEffect(() => {
+    let isMounted = false;
+
+    const getUserFromStorage = async () => {
+      if (isMounted) {
+      }
+
+      await Splash.hideAsync();
+    };
+
+    let ignore = getUserFromStorage();
+
     //Get user from async storage and write to store
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

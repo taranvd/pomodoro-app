@@ -1,8 +1,12 @@
 import BottomMenu from '@/components/ui/layout/bottom-menu/BottomMenu';
 import { useAuth } from '@/hooks/useAuth';
-import { useNavigationContainerRef } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 import { FC, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
+import { PrivateNavigation } from './PrivateNavigation';
 
 type Props = {};
 
@@ -28,8 +32,11 @@ export const Navigation: FC<Props> = () => {
 
   return (
     <>
+      <NavigationContainer ref={navRef}>
+        <PrivateNavigation />
+      </NavigationContainer>
       {user && currentRoute && (
-        <BottomMenu nav={navRef.navigate} currentRout={currentRoute} />
+        <BottomMenu nav={navRef.navigate} currentRoute={currentRoute} />
       )}
     </>
   );
